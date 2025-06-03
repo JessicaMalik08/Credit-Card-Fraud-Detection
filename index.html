@@ -1,0 +1,77 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Credit Card Fraud Detection</title>
+  <style>
+    body {
+      background-color: #ffe5e5;
+      color: rgb(0, 0, 0);
+      font-family: Arial, sans-serif;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+    }
+    .container {
+      background-color: #ffffff;
+      padding: 30px;
+      border-radius: 10px;
+      width: 600px;
+      box-shadow: 0 0 15px rgba(255, 255, 255, 0.1);
+    }
+    h1 {
+      text-align: center;
+      margin-bottom: 20px;
+    }
+    label {
+      display: block;
+      margin-bottom: 10px;
+    }
+    input[type="text"] {
+      width: 95%;
+      padding: 12px;
+      font-size: 16px;
+      border: 2px solid rgb(193, 193, 193);
+      background-color: #d4d4d4;
+      color: white;
+      border-radius: 5px;
+    }
+    input[type="submit"] {
+      margin-top: 20px;
+      width: 50%;
+      padding: 12px;
+      font-size: 16px;
+      background-color: rgb(46, 144, 171);
+      color: white;
+      border: none;
+      border-radius: 5px;
+      cursor: pointer;
+      
+    }
+    .result {
+      margin-top: 20px;
+      font-size: 18px;
+      text-align: center;
+    }
+  </style>
+</head>
+<body>
+  <div class="container">
+    <h1>Credit Card Fraud Detection Model</h1>
+    <form action="/predict" method="POST">
+        <p>Enter the following features to check whether the trasaction is fraudlent or not</p>
+      <label for="features"><b>Input all features</b></label>
+      <input type="text" name="features" id="features" required>
+      <div style="text-align: center;">
+  <input type="submit" value="Submit">
+</div>
+    
+    </form>
+    {% if prediction %}
+    <div class="result">{{ prediction }}</div>
+    {% endif %}
+  </div>
+</body>
+</html>
